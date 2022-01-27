@@ -39,19 +39,21 @@ unittest_teardown()
 }
 
 
+unittest(test_constants)
+{
+  assertEqual(ADLER_MOD_PRIME, 65521);
+}
+
+
 unittest(test_adler32)
 {
   char str1[24] = "abcde";
   char str2[24] = "abcdef";
   char str3[24] = "abcdefgh";
 
-  fprintf(stderr, "%d\n", adler32((uint8_t *) str1, 5));
-  fprintf(stderr, "%d\n", adler32((uint8_t *) str2, 6));
-  fprintf(stderr, "%d\n", adler32((uint8_t *) str3, 8));
-  
-  assertEqual(4031760169UL, adler32((uint8_t *) str1, 5));
-  assertEqual(1448095018UL, adler32((uint8_t *) str2, 6));
-  assertEqual(3957429649UL, adler32((uint8_t *) str3, 8));
+  assertEqual(96993776, adler32((uint8_t *) str1, 5));
+  assertEqual(136184406, adler32((uint8_t *) str2, 6));
+  assertEqual(234881829, adler32((uint8_t *) str3, 8));
 }
 
 
