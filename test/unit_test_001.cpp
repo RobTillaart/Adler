@@ -45,6 +45,10 @@ unittest(test_adler32)
   char str2[24] = "abcdef";
   char str3[24] = "abcdefgh";
 
+  fprintf(stderr, "%d\n", adler32(str1, 5));
+  fprintf(stderr, "%d\n", adler32(str2, 6));
+  fprintf(stderr, "%d\n", adler32(str3, 8));
+  
   assertEqual(4031760169UL, adler32(str1, 5));
   assertEqual(1448095018UL, adler32(str2, 6));
   assertEqual(3957429649UL, adler32(str3, 8));
