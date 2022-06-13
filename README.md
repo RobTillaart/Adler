@@ -35,6 +35,7 @@ optional setting start values for s1 and s2. Note this is not part of the standa
 This allows a restart from a specific index in a buffer.
 - **void add(uint8_t value)** add a single value to the checksum.
 - **void add(const uint8_t \* array, uint8_t length)** add an array of values to the checksum.
+- **void addFast(const uint8_t \* array, uint8_t length)** add an array of values to the checksum. Is faster by trading PROGMEM for performance.
 - **uint32_t getAdler()** get the current checksum.
 - **uint32_t count()** get the number of items added. Merely a debugging feature, can overflow without affecting checksum.
 

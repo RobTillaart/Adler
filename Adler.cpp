@@ -2,7 +2,7 @@
 //
 //    FILE: Adler.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.1
+// VERSION: 0.1.2
 //    DATE: 2022-01-27
 // PURPOSE: Arduino Library for calculating Adler-32 checksum
 //     URL: https://github.com/RobTillaart/Adler
@@ -11,12 +11,68 @@
 //  HISTORY
 //  0.1.0   2022-01-27   initial version
 //  0.1.1   2022-04-15   split of .cpp file
+//  0.1.2   2022-06-13   split interface and implementation
 
 
 #include "Adler.h"
 
 
-/////////////////////////////////////////////////
+Adler32::Adler32()
+{
+  begin(1, 0);
+}
+
+
+void Adler32::begin(uint32_t s1 = 1, uint32_t s2 = 0)
+{
+  _s1 = s1;
+  _s2 = s2;
+  _count = 0;
+}
+
+
+void Adler32::add(uint8_t value)
+{
+  _count++;
+  _s1 += value;
+   if (_s1 >= ADLER_MOD_PRIME) _s1 -= ADLER_MOD_PRIME;
+  _s2 += _s1;
+   if (_s2 >= ADLER_MOD_PRIME) _s2 -= ADLER_MOD_PRIME;
+}
+
+
+void Adler32::add(uint8_t * array, uint16_t length)
+{
+  while (length--)
+  {
+    add(*array++);
+  }
+  return;
+}
+
+
+void Adler32::addFast(uint8_t * array, uint16_t length)
+{
+  _count += length;
+  while (length--)
+  {
+   _s1 += *array++;
+   if (_s1 >= ADLER_MOD_PRIME) _s1 -= ADLER_MOD_PRIME;
+  _s2 += _s1;
+   if (_s2 >= ADLER_MOD_PRIME) _s2 -= ADLER_MOD_PRIME;
+  }
+}
+
+
+uint32_t Adler32::getAdler()
+{
+  return (_s2 << 16) | _s1;
+};
+
+
+
+
+//////////////////////////////////////////////////////////////
 //
 //  STATIC FUNCTION
 //
