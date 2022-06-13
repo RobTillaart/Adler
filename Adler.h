@@ -39,9 +39,12 @@ public:
   void begin(uint32_t s1 = 1, uint32_t s2 = 0);
 
   void add(uint8_t value);
+  void add(char value);
   void add(uint8_t * array, uint16_t length);
+  void add(char * array, uint16_t length);
   //  trade PROGMEM for speed
   void addFast(uint8_t * array, uint16_t length);
+  void addFast(char * array, uint16_t length);
 
   uint32_t getAdler();
   uint32_t count() { return _count; };

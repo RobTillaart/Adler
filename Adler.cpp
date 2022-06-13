@@ -51,6 +51,7 @@ void Adler32::add(uint8_t * array, uint16_t length)
   return;
 }
 
+
 //  optimized version (under test)
 //  S1 grows linear
 //  S2 grows quadratic
@@ -72,6 +73,26 @@ void Adler32::addFast(uint8_t * array, uint16_t length)
       }
     }
   }
+}
+
+
+
+void Adler32::add(char value)
+{
+  add((uint8_t) value);
+}
+
+
+void Adler32::add(char * array, uint16_t length)
+{
+  add((uint8_t) array, length);
+}
+
+
+
+void Adler32::addFast(char * array, uint16_t length)
+{
+  addFast((uint8_t *) array, length);
 }
 
 
