@@ -28,6 +28,10 @@ varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies \
 nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 
 
+char hello[] = "hello world";
+
+
+
 void setup()
 {
   Serial.begin(115200);
@@ -70,11 +74,11 @@ void setup()
 
   ad.begin();
   start = micros();
-  //  for (uint32_t x = 0; x < 1000000; x++)
-  //  {
-  //    z = x & 0xFF;
-  //    ad.add(z);
-  //  }
+  for (uint32_t x = 0; x < 1000000; x++)
+  {
+    z = x & 0xFF;
+    ad.add(z);
+  }
   stop = micros();
   Serial.print("     total: ");
   Serial.println(stop - start);
@@ -100,10 +104,9 @@ void setup()
   }
   stop = micros();
   Serial.print("   lorem 1: ");
-  Serial.println(stop - start);
-  Serial.print("  checksum: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
   Serial.println(ad.getAdler());
-  Serial.println();
   delay(100);
 
   ad.begin();
@@ -111,11 +114,9 @@ void setup()
   ad.add(lorem, strlen(lorem));
   stop = micros();
   Serial.print("   lorem 2: ");
-  Serial.println(stop - start);
-  Serial.print("  checksum: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
   Serial.println(ad.getAdler());
-  Serial.println();
-
   delay(100);
 
   ad.begin();
@@ -123,10 +124,51 @@ void setup()
   ad.addFast(lorem, strlen(lorem));
   stop = micros();
   Serial.print("   lorem 3: ");
-  Serial.println(stop - start);
-  Serial.print("  checksum: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
   Serial.println(ad.getAdler());
   Serial.println();
+  delay(100);
+
+  /////////////////////////////////////////////////////////////////
+
+  ad.begin();
+  Serial.print("LENGTH HELLO: ");
+  Serial.println(strlen(hello));
+  Serial.println();
+  delay(100);
+  start = micros();
+  for (int i = 0; hello[i] != 0; i++)
+  {
+    ad.add(hello[i]);
+  }
+  stop = micros();
+  Serial.print("   hello 1: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
+  Serial.println(ad.getAdler());
+  delay(100);
+
+  ad.begin();
+  start = micros();
+  ad.add(hello, strlen(hello));
+  stop = micros();
+  Serial.print("   hello 2: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
+  Serial.println(ad.getAdler());
+  delay(100);
+
+  ad.begin();
+  start = micros();
+  ad.addFast(hello, strlen(hello));
+  stop = micros();
+  Serial.print("   hello 3: ");
+  Serial.print(stop - start);
+  Serial.print("\tchecksum: ");
+  Serial.println(ad.getAdler());
+  Serial.println();
+
 
 }
 

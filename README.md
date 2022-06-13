@@ -48,9 +48,22 @@ optional with intermediate checksum tests.
 Not tested ESP32 (and many other platforms) yet.
 First numbers of **.add(value)** measured with test sketch shows the following timing.
 
-| Checksum    |  UNO 16 MHz | ESP32 240 MHz |
-|:------------|:-----------:|:-------------:|
-| Adler32     |     5.6 us  |               |
+| Version | Checksum |  UNO 16 MHz  |  ESP32 240 MHz  |
+|:-------:|:---------|:------------:|:---------------:|
+| 0.1.0   | Adler32  |     5.6 us   |                 |
+| 0.1.2   | Adler32  |     6.6 us   |                 |
+
+Todo elaborate / investigate.
+
+
+#### Performance 2
+
+(since 0.1.2) 
+
+The **addFast(array, length)** is faster than the reference **add(array, length)** but uses 108 bytes more, so a slightly larger footprint. 
+So depending on your needs, you choose performance or footprint. 
+
+See **Adler32_performance_addFast.ino**
 
 
 
@@ -79,6 +92,9 @@ Lorem Ipsum text = 868 bytes.
 | Adler32     |   1116 us   |               |
 
 Average 1116 / 868 = 1.29 us per byte.
+
+
+
 
 
 ## Operation
