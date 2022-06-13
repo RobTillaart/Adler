@@ -1,4 +1,3 @@
-#pragma once
 //
 //    FILE: Adler.cpp
 //  AUTHOR: Rob Tillaart
