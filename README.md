@@ -89,6 +89,8 @@ See examples.
 ## Future ideas
 
 - test other platforms
-- optimize add(array, length) ..
+- add Adler-16, similar algorithm 
+  - MOD 32749 (largest prime below 2^15 (32768)
+  - (0.2.0)
 
 

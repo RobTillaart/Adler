@@ -23,7 +23,7 @@ Adler32::Adler32()
 }
 
 
-void Adler32::begin(uint32_t s1 = 1, uint32_t s2 = 0)
+void Adler32::begin(uint32_t s1, uint32_t s2)
 {
   _s1 = s1;
   _s2 = s2;
@@ -41,6 +41,7 @@ void Adler32::add(uint8_t value)
 }
 
 
+//  straightforward going through the array.
 void Adler32::add(uint8_t * array, uint16_t length)
 {
   while (length--)
@@ -50,16 +51,26 @@ void Adler32::add(uint8_t * array, uint16_t length)
   return;
 }
 
-
+//  optimized version (under test)
+//  S1 grows linear
+//  S2 grows quadratic
+//  as S2 grows faster than S1, S1 needs only to be checked if S2 hits the ADLER_MOD_PRIME
+//     and probably far less.
 void Adler32::addFast(uint8_t * array, uint16_t length)
 {
   _count += length;
   while (length--)
   {
-   _s1 += *array++;
-   if (_s1 >= ADLER_MOD_PRIME) _s1 -= ADLER_MOD_PRIME;
-  _s2 += _s1;
-   if (_s2 >= ADLER_MOD_PRIME) _s2 -= ADLER_MOD_PRIME;
+    _s1 += *array++;
+    _s2 += _s1;
+    if (_s2 >= ADLER_MOD_PRIME)
+    {
+      _s2 -= ADLER_MOD_PRIME;
+      if (_s1 >= ADLER_MOD_PRIME)
+      {
+        _s1 -= ADLER_MOD_PRIME;
+      }
+    }
   }
 }
 

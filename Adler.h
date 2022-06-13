@@ -18,6 +18,7 @@
 const uint16_t ADLER_MOD_PRIME     = 65521;
 
 
+
 /////////////////////////////////////////////////
 //
 //  STATIC FUNCTION
@@ -49,6 +50,7 @@ private:
   uint32_t _s1;
   uint32_t _s2;
   uint32_t _count;
+
 };
 
 

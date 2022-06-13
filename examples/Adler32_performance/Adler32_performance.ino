@@ -68,8 +68,31 @@ void setup()
   Serial.println();
   delay(100);
 
-  //
   ad.begin();
+  start = micros();
+  //  for (uint32_t x = 0; x < 1000000; x++)
+  //  {
+  //    z = x & 0xFF;
+  //    ad.add(z);
+  //  }
+  stop = micros();
+  Serial.print("     total: ");
+  Serial.println(stop - start);
+  Serial.print(" 1e6 x add: ");
+  Serial.println(stop - start - randomtime);
+  delay(100);
+  Serial.print("  checksum: ");
+  Serial.println(ad.getAdler());
+  Serial.println();
+  delay(100);
+
+  /////////////////////////////////////////////////////////////////
+
+  ad.begin();
+  Serial.print("LENGTH LOREM: ");
+  Serial.println(strlen(lorem));
+  Serial.println();
+  delay(100);
   start = micros();
   for (int i = 0; lorem[i] != 0; i++)
   {

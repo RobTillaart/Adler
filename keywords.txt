@@ -8,6 +8,7 @@ Adler32	KEYWORD1
 adler32	KEYWORD2
 begin	KEYWORD2
 add	KEYWORD2
+addFast	KEYWORD2
 getAdler	KEYWORD2
 count	KEYWORD2
 
