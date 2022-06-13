@@ -86,11 +86,11 @@ Average 1116 / 868 = 1.29 us per byte.
 See examples.
 
 
-## Future ideas
+## Future
 
 - test other platforms
 - add Adler-16, similar algorithm 
-  - MOD 32749 (largest prime below 2^15 (32768)
+  - ADLER16_MOD_PRIME  32749 = largest prime below 2^15 (32768)
   - (0.2.0)
 
 

@@ -77,8 +77,10 @@ void Adler32::addFast(uint8_t * array, uint16_t length)
   }
 }
 
-
-
+//////////////////////////////////////////////////////////////
+//
+//  wrapper for strings.
+//
 void Adler32::add(char value)
 {
   add((uint8_t) value);
@@ -91,7 +93,6 @@ void Adler32::add(char * array, uint16_t length)
 }
 
 
-
 void Adler32::addFast(char * array, uint16_t length)
 {
   addFast((uint8_t *) array, length);
@@ -102,7 +103,6 @@ uint32_t Adler32::getAdler()
 {
   return (_s2 << 16) | _s1;
 };
-
 
 
 
