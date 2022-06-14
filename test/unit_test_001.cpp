@@ -45,7 +45,7 @@ nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 
 unittest_setup()
 {
-  fprintf(stderr, "ADLER_LIB_VERSION: %s\n", (char *) ADLER_LIB_VERSION);
+  fprintf(stderr, "ADLER32_LIB_VERSION: %s\n", (char *) ADLER32_LIB_VERSION);
 }
 
 unittest_teardown()

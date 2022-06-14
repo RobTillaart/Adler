@@ -39,8 +39,8 @@ void setup()
 
   Serial.println();
   Serial.println("Adler32_performance_addFast");
-  Serial.print("ADLER_LIB_VERSION: ");
-  Serial.println(ADLER_LIB_VERSION);
+  Serial.print("ADLER32_LIB_VERSION: ");
+  Serial.println(ADLER32_LIB_VERSION);
 
   // to compare footprint 
   //  ad.add(lorem, strlen(lorem));

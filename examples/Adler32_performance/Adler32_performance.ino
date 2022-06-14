@@ -39,8 +39,8 @@ void setup()
 
   Serial.println();
   Serial.println("Adler32_performance");
-  Serial.print("ADLER_LIB_VERSION: ");
-  Serial.println(ADLER_LIB_VERSION);
+  Serial.print("ADLER32_LIB_VERSION: ");
+  Serial.println(ADLER32_LIB_VERSION);
 
   start = micros();
   for (uint16_t x = 0; x < 10000; x++)

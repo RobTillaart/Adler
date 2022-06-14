@@ -12,6 +12,7 @@
 //  0.1.1   2022-04-15   split of .cpp file
 //  0.1.2   2022-06-13   split interface and implementation
 //                       rename ADLER32_MOD_PRIME
+//                       rename ADLER32_LIB_VERSION
 //                       add addFast(array, length)
 //                       add char interfaces
 
@@ -31,6 +32,7 @@ void Adler32::begin(uint32_t s1, uint32_t s2)
   _s2 = s2;
   _count = 0;
 }
+
 
 //  reference implementation
 void Adler32::add(uint8_t value)
@@ -55,9 +57,6 @@ void Adler32::add(uint8_t value)
 //       if (_s1 >= ADLER32_MOD_PRIME) _s1 -= ADLER32_MOD_PRIME;
 //     }
 //  }
-
-
-
 
 
 //  straightforward going through the array.
@@ -123,9 +122,6 @@ void Adler32::addFast(uint8_t * array, uint16_t length)
   _s1 = s1;
   _s2 = s2;
 }
-
-
-
 
 
 //////////////////////////////////////////////////////////////

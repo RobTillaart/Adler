@@ -12,10 +12,10 @@
 #include "Arduino.h"
 
 
-#define ADLER_LIB_VERSION              (F("0.1.2"))
+#define ADLER32_LIB_VERSION        (F("0.1.2"))
 
 
-const uint16_t ADLER32_MOD_PRIME     = 65521;
+const uint16_t ADLER32_MOD_PRIME = 65521;
 
 
 

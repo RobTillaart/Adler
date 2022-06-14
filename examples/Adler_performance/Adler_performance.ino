@@ -30,8 +30,8 @@ void setup()
   while (!Serial);
 
   Serial.println();
-  Serial.print("ADLER_LIB_VERSION: ");
-  Serial.println(ADLER_LIB_VERSION);
+  Serial.print("ADLER32_LIB_VERSION: ");
+  Serial.println(ADLER32_LIB_VERSION);
 
   for (int i = 0; i < 60; i++)
   {

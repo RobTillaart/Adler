@@ -1,5 +1,5 @@
 Adler32_performance
-ADLER_LIB_VERSION: 0.1.2
+ADLER32_LIB_VERSION: 0.1.2
 randomtime: 901464
      total: 967464
  1e4 x add: 66000
