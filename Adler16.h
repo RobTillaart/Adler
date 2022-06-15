@@ -17,10 +17,7 @@
 
 
 //  largest prime below 2^8
-#ifndef ADLER16_MOD_PRIME
-#define ADLER16_MOD_PRIME               251
-#endif
-
+const uint16_t ADLER16_MOD_PRIME = 251;
 
 class Adler16
 {

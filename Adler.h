@@ -15,13 +15,8 @@
 #define ADLER_LIB_VERSION        (F("0.2.0"))
 
 
-#ifndef ADLER32_MOD_PRIME
-#define ADLER32_MOD_PRIME             65521
-#endif
-
-#ifndef ADLER16_MOD_PRIME
-#define ADLER16_MOD_PRIME               251
-#endif
+const uint32_t ADLER32_MOD_PRIME = 65521;
+const uint16_t ADLER16_MOD_PRIME = 251;
 
 
 /////////////////////////////////////////////////

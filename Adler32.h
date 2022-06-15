@@ -16,9 +16,7 @@
 
 
 //  largest prime below 2^16
-#ifndef ADLER32_MOD_PRIME
-#define ADLER32_MOD_PRIME             65521
-#endif
+const uint32_t ADLER32_MOD_PRIME = 65521;
 
 
 class Adler32
