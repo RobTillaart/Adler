@@ -89,8 +89,6 @@ Note: **add()** is about 6.6 us per byte.
 
 #### addFast(lorem) 868 chars
 
-(since 0.1.2) 
-
 The **addFast(array, length)** is faster than the 
 reference **add(array, length)** and uses 108 bytes more.
 So the function has a larger footprint. 
@@ -106,6 +104,53 @@ See **Adler32_performance_addFast.ino**
 | 0.2.0   | addFast  |  1348 us   |               |
 
 Note: **addFast()** is less than 2 us per byte.
+
+
+
+## Performance Adler16
+
+Not tested ESP32 (and many other platforms) yet.
+
+Numbers measured with **Adler16_performance.ino**.
+
+
+#### add(value)
+
+The **add(value)** adds one byte and does a subtraction
+instead of a modulo.
+
+| Version | Function | UNO 16 MHz | ESP32 240 MHz |
+|:-------:|:---------|:----------:|:-------------:|
+| 0.2.0   | add      |   4.0 us   |               |
+
+The per byte performance of the Adler16 (on UNO) is faster 
+than the Adler32 **add(value)**. The reason is that a 16 bit 
+subtraction on an UNO is faster than a 32 bit subtraction.
+
+
+#### add(lorem) 868 chars
+
+The **add(array, length)** is a straightforward loop
+over the array and has a small footprint.
+
+| Version | Function | UNO 16 MHz | ESP32 240 MHz |
+|:-------:|:---------|:----------:|:-------------:|
+| 0.2.0   | add      |  4040 us   |               |
+
+Note: **add()** is about 6.6 us per byte.
+
+
+#### addFast(lorem) 868 chars
+
+The **addFast(array, length)** is faster than the 
+reference **add(array, length)**.
+
+| Version | Function | UNO 16 MHz | ESP32 240 MHz |
+|:-------:|:---------|:----------:|:-------------:|
+| 0.2.0   | addFast  |  1968 us   |               |
+
+The gain of the faster 16 bit modulo meets the frequency of
+doing the modulo more often.
 
 
 ## Interface static functions
@@ -138,10 +183,13 @@ Lorem Ipsum text = 868 bytes.
 
 
 Adler32 average 1116 / 868 = 1.29 us per byte.
-Adler16 average 1736 / 868 = 2.00 us per byte.
+Adler16 average 1736 / 868 = 2.00 us per byte. (~1.5x slower !)
 
 Adler16 does more often the modulo math as it reaches halfway uint16_t 
 faster than Adler32 reaches halfway uint32_t.
+
+As the Adler16 is less performant as the Adler32, it is often the best to use
+the 32 bit version.
 
 
 ## Operation
@@ -152,7 +200,7 @@ See examples.
 ## Future
 
 - return values for **add(array)** and **addFast(array)**
-  - updated checksum.
+  - updated checksum?
   - not for **add(value)** as that would create quite some overhead.
 - Adler64 ?
   - would need a large prime (which)
