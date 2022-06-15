@@ -151,7 +151,17 @@ See examples.
 
 ## Future
 
-- test other platforms
+- return values for **add(array)** and **addFast(array)**
+  - updated checksum.
+  - not for **add(value)** as that would create quite some overhead.
+- Adler64 ?
+  - would need a large prime (which)
+
+
+#### Wont
+
+- do the string wrappers need strlen() ? parameter.
+  - yes, as string can be processed partially.
 
 
 
