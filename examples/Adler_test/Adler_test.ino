@@ -9,7 +9,7 @@
 
 
 //  expected output
-//  ADLER32_LIB_VERSION: 0.1.2
+//  ADLER_LIB_VERSION: 0.2.0
 //  5C801F0
 //  81E0256
 //  E000325
@@ -28,8 +28,8 @@ void setup()
   while (!Serial);
 
   Serial.println();
-  Serial.print("ADLER32_LIB_VERSION: ");
-  Serial.println(ADLER32_LIB_VERSION);
+  Serial.print("ADLER_LIB_VERSION: ");
+  Serial.println(ADLER_LIB_VERSION);
 
   Serial.println(adler32((uint8_t *) str1, 5), HEX);
   Serial.println(adler32((uint8_t *) str2, 6), HEX);
