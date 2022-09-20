@@ -76,11 +76,11 @@ unittest(test_ADLER32_lorem)
   assertEqual(3972480156, ad32.getAdler());
 
   ad32.begin();
-  ad32.add(lorem, strlen(lorem));
+  assertEqual(3972480156, ad32.add(lorem, strlen(lorem)));
   assertEqual(3972480156, ad32.getAdler());
 
   ad32.begin();
-  ad32.addFast(lorem, strlen(lorem));
+  assertEqual(3972480156, ad32.addFast(lorem, strlen(lorem)));
   assertEqual(3972480156, ad32.getAdler());
 
 }

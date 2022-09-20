@@ -76,11 +76,11 @@ unittest(test_ADLER16_lorem)
   assertEqual(57303, ad16.getAdler());
 
   ad16.begin();
-  ad16.add(lorem, strlen(lorem));
+  assertEqual(57303, ad16.add(lorem, strlen(lorem)));
   assertEqual(57303, ad16.getAdler());
 
   ad16.begin();
-  ad16.addFast(lorem, strlen(lorem));
+  assertEqual(57303, ad16.addFast(lorem, strlen(lorem)));
   assertEqual(57303, ad16.getAdler());
 }
 
