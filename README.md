@@ -15,9 +15,9 @@ Arduino Library for Adler-32 and experimental Adler-16 checksum.
 
 This library provides a Adler32 checksum of a data array.
 Furthermore since 0.2.0 an experimental Adler-16 implementation is added.
-This one is often faster as it uses a smaller checksum than the Adler32,
-and the price is that it is less sensitive than the Adler32.
-Still it might have its niches where it will be useful.
+This one is often faster as it uses a smaller checksum than the Adler32.
+The price is that Adler16 is less sensitive than the Adler32.
+Still it will have its niches where it will be useful.
 
 Relates to https://github.com/RobTillaart/CRC
 
@@ -48,10 +48,12 @@ This allows a restart from a specific index in a buffer.
 - **void add(uint8_t value)** add a single value to the checksum.
 - **uint32_t add(const uint8_t \* array, uint8_t length)** add an array of values to the checksum.
 Returns the current checksum.
-- **uint32_t addFast(const uint8_t \* array, uint8_t length)** add an array of values to the checksum. Is faster by trading PROGMEM for performance.
+- **uint32_t addFast(const uint8_t \* array, uint8_t length)** add an array of values to the checksum. 
+Is faster by trading PROGMEM for performance.
 Returns the current checksum.
 - **uint32_t getAdler()** get the current checksum.
-- **uint32_t count()** get the number of items added. Merely a debugging feature, can overflow without affecting checksum.
+- **uint32_t count()** get the number of items added. Merely a debugging feature, 
+can overflow without affecting checksum.
 
 The class is typically used for streaming very large blocks of data,
 optional with intermediate checksum tests.
@@ -59,7 +61,8 @@ optional with intermediate checksum tests.
 
 ## Performance Adler32
 
-Not tested ESP32 (and many other platforms) yet.
+Only tested on UNO and ESP32 yet.
+If you have data of other platforms, please let me know.
 
 Numbers measured with **Adler32_performance.ino**.
 
@@ -71,9 +74,9 @@ instead of a modulo.
 
 | Version | Function | UNO 16 MHz | ESP32 240 MHz |
 |:-------:|:---------|:----------:|:-------------:|
-| 0.1.0   | add      |   5.6 us   |               |
-| 0.1.2   | add      |   6.6 us   |               |
-| 0.2.0   | add      |   5.9 us   |    1.7 us     |
+| 0.1.0   |   add    |   5.6 us   |               |
+| 0.1.2   |   add    |   6.6 us   |               |
+| 0.2.0   |   add    |   5.9 us   |    1.7 us     |
 
 
 ### add(lorem) 868 chars
@@ -83,9 +86,9 @@ over the array and has a small footprint.
 
 | Version | Function | UNO 16 MHz | ESP32 240 MHz |
 |:-------:|:---------|:----------:|:-------------:|
-| 0.1.0   | add      |            |               |
-| 0.1.2   | add      |  6392 us   |               |
-| 0.2.0   | add      |  5748 us   |     145 us    |
+| 0.1.0   |   add    |            |               |
+| 0.1.2   |   add    |  6392 us   |               |
+| 0.2.0   |   add    |  5748 us   |     145 us    |
 
 
 Note: **add()** is about 6.6 us per byte.
@@ -94,7 +97,7 @@ Note: **add()** is about 6.6 us per byte.
 ### addFast(lorem) 868 chars
 
 The **addFast(array, length)** is faster than the 
-reference **add(array, length)** and uses 108 bytes more.
+reference **add(array, length)** and uses 108 bytes more (UNO).
 So the function has a larger footprint. 
 Depending on your needs, choose performance or footprint. 
 
@@ -112,7 +115,8 @@ Note: **addFast()** is less than 2 us per byte.
 
 ## Performance Adler16
 
-Not tested ESP32 (and many other platforms) yet.
+Only tested on UNO and ESP32 yet.
+If you have data of other platforms, please let me know.
 
 Numbers measured with **Adler16_performance.ino**.
 
@@ -171,7 +175,8 @@ Think of packets in a network, records in a database, or a checksum for an confi
 
 ### Performance
 
-Not tested ESP32 (and many other platforms) yet.
+Only tested on UNO and ESP32 yet.
+If you have data of other platforms, please let me know.
 
 Numbers measured with **Adler_performance.ino**.
 
@@ -193,7 +198,7 @@ Adler16 average 1736 / 868 = 2.00 us per byte. (~1.5x slower !)
 Adler16 does more often the modulo math as it reaches halfway uint16_t 
 faster than Adler32 reaches halfway uint32_t.
 
-As the Adler16 is less performant as the Adler32 (on alll tested platforms), 
+As the Adler16 is less performant as the Adler32 (on all tested platforms), 
 it is often the best to use the 32 bit version.
 
 
