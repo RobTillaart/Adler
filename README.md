@@ -186,7 +186,7 @@ doing the modulo more often.
 ## Interface static functions
 
 ```cpp
-#include "Adler.h
+#include "Adler.h"
 ```
 
 The functions are straightforward.
