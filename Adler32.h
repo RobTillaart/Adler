@@ -35,7 +35,7 @@ public:
   uint32_t addFast(uint8_t * array, uint16_t length);
 
 
-  //  wrappers for strings
+  //  wrappers for char array's / strings
   void     add(char value);
   //  returns current Adler value
   uint32_t add(char * array, uint16_t length);

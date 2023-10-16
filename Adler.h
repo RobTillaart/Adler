@@ -28,16 +28,8 @@ uint16_t adler16(uint8_t *data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 
 
 
 //  char array wrappers
-uint32_t adler32(char * array, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)
-{
-  return adler32((uint8_t *) array, length, s1, s2);
-}
-
-
-uint16_t adler16(char * array, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)
-{
-  return adler16((uint8_t *) array, length, s1, s2);
-}
+uint32_t adler32(char * array, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0);
+uint16_t adler16(char * array, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0);
 
 //  -- END OF FILE -- 
 
