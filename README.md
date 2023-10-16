@@ -58,13 +58,13 @@ Tested on Arduino UNO and ESP32.
 The interface for the Adler16 is very similar.
 
 - **Adler32()** Constructor, initializes internals.
-- **void begin(uint8_t s1 = 1, uint8_t s2 = 0)** resets the internals.
+- **void begin(uint32_t s1 = 1, uint32_t s2 = 0)** resets the internals.
 optional setting start values for s1 and s2. Note this is not part of the standard.
 These parameters allows a restart from a specific index in a buffer.
 - **void add(uint8_t value)** add a single value to the checksum.
-- **uint32_t add(uint8_t \* array, uint8_t length)** add an array of values to the checksum.
+- **uint32_t add(uint8_t \* array, uint16_t length)** add an array of values to the checksum.
 Returns the current checksum.
-- **uint32_t addFast(uint8_t \* array, uint8_t length)** add an array of values to the checksum.
+- **uint32_t addFast(uint8_t \* array, uint16_t length)** add an array of values to the checksum.
 Is faster by trading PROGMEM for performance.
 Returns the current checksum.
 - **uint32_t getAdler()** get the current checksum.
@@ -77,8 +77,8 @@ optional with intermediate checksum tests (e.g after every 256 bytes)
 Wrappers exist for adding char and char array. Functional identical to above.
 
 - **void add(char value)**
-- **uint32_t add(char \* array, uint8_t length)**
-- **uint32_t addFast(const uint8_t \* array, uint8_t length)**
+- **uint32_t add(char \* array, uint16_t length)**
+- **uint32_t addFast(char \* array, uint16_t length)**
 
 
 ## Performance Adler32
