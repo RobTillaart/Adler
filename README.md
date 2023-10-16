@@ -2,8 +2,11 @@
 [![Arduino CI](https://github.com/RobTillaart/Adler/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
 [![Arduino-lint](https://github.com/RobTillaart/Adler/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/RobTillaart/Adler/actions/workflows/arduino-lint.yml)
 [![JSON check](https://github.com/RobTillaart/Adler/actions/workflows/jsoncheck.yml/badge.svg)](https://github.com/RobTillaart/Adler/actions/workflows/jsoncheck.yml)
+[![GitHub issues](https://img.shields.io/github/issues/RobTillaart/Adler.svg)](https://github.com/RobTillaart/Adler/issues)
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/Adler/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/RobTillaart/Adler.svg?maxAge=3600)](https://github.com/RobTillaart/Adler/releases)
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/robtillaart/library/Adler.svg)](https://registry.platformio.org/libraries/robtillaart/Adler)
 
 
 # Adler
@@ -26,7 +29,7 @@ in line with the CRC library.
 - Adler16.h for the Adler16 class.
 
 
-#### related
+#### Related
 
 - https://github.com/RobTillaart/Adler
 - https://github.com/RobTillaart/CRC
@@ -44,7 +47,11 @@ Tested on Arduino UNO and ESP32.
 
 ### Adler class
 
-Use **\#include "Adler32.h"** or **\#include "Adler16.h"**
+```cpp
+#include "Adler32.h
+// or 
+#include "Adler16.h
+```
 
 The interface for the Adler16 is very similar.
 
@@ -170,15 +177,22 @@ doing the modulo more often.
 
 ## Interface static functions
 
-The functions are straightforward.
+```cpp
+#include "Adler.h
+```
 
-Use **\#include "Adler.h"**
+The functions are straightforward.
 
 - **uint32_t adler32(uint8_t \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)** length in units of 1 byte = 8 bits.
 - **uint16_t adler16(uint8_t \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)** length in units of 1 byte = 8 bits.
 
 The functions are typically used for an in memory buffer to calculate the checksum once.
 Think of packets in a network, records in a database, or a checksum for an configuration in EEPROM.
+
+Two wrapper functions added in 0.2.4 for char array's (convenience).
+
+- **uint32_t adler32(char \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)** length in units of 1 byte = 8 bits.
+- **uint16_t adler16(char \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)** length in units of 1 byte = 8 bits.
 
 
 ### Performance
@@ -226,8 +240,8 @@ See examples.
   - next major upgrade(0.3.0)
   - other platforms?
 - extend unit tests
-  - s1 s2 param static functions
-  -
+  - s1 s2 parameter static functions
+
 
 #### Could
 
@@ -238,7 +252,7 @@ See examples.
   - need printHelpers library for printing.
   - only on request.
 - wrapper functions (static) for char array's in adler.h ?
-- fix MAGIC NRS in adler.cpp
+- **void add(String str);**?
 
 
 #### Wont
@@ -249,4 +263,11 @@ See examples.
   - would create too much overhead for repeated calls.
 
 
+## Support
+
+If you appreciate my libraries, you can support the development and maintenance.
+Improve the quality of the libraries by providing issues and Pull Requests, or
+donate through PayPal or GitHub sponsors.
+
+Thank you,
 
