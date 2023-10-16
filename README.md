@@ -16,10 +16,11 @@ Arduino Library for Adler-32 and experimental Adler-16 checksum.
 
 ## Description
 
-This library provides an Adler32 checksum of a data array.
-Furthermore since 0.2.0 an experimental Adler16 implementation is added.
-This one is often faster as it uses a smaller checksum than the Adler32.
-The price is that Adler16 is less sensitive than the Adler32.
+This library provides an Adler32 checksum of a data block, typical an array of bytes.
+Since 0.2.0 the library also supports an experimental Adler16 implementation.
+This Adler16 is often faster as it uses a smaller checksum than the Adler32.
+The price is that Adler16 is less sensitive than Adler32 as less possible checksums
+are possible. 
 Still it will have its niches where it will be useful.
 
 0.2.0 is a breaking change, file names have been changed to be more
@@ -31,6 +32,7 @@ in line with the CRC library.
 
 #### Related
 
+- https://en.wikipedia.org/wiki/Adler-32
 - https://github.com/RobTillaart/Adler
 - https://github.com/RobTillaart/CRC
 - https://github.com/RobTillaart/Fletcher
@@ -48,9 +50,9 @@ Tested on Arduino UNO and ESP32.
 ### Adler class
 
 ```cpp
-#include "Adler32.h
+#include "Adler32.h"
 // or 
-#include "Adler16.h
+#include "Adler16.h"
 ```
 
 The interface for the Adler16 is very similar.
@@ -60,9 +62,9 @@ The interface for the Adler16 is very similar.
 optional setting start values for s1 and s2. Note this is not part of the standard.
 These parameters allows a restart from a specific index in a buffer.
 - **void add(uint8_t value)** add a single value to the checksum.
-- **uint32_t add(const uint8_t \* array, uint8_t length)** add an array of values to the checksum.
+- **uint32_t add(uint8_t \* array, uint8_t length)** add an array of values to the checksum.
 Returns the current checksum.
-- **uint32_t addFast(const uint8_t \* array, uint8_t length)** add an array of values to the checksum.
+- **uint32_t addFast(uint8_t \* array, uint8_t length)** add an array of values to the checksum.
 Is faster by trading PROGMEM for performance.
 Returns the current checksum.
 - **uint32_t getAdler()** get the current checksum.
@@ -71,6 +73,12 @@ can overflow without affecting checksum.
 
 The class is typically used for streaming very large blocks of data,
 optional with intermediate checksum tests (e.g after every 256 bytes)
+
+Wrappers exist for adding char and char array. Functional identical to above.
+
+- **void add(char value)**
+- **uint32_t add(char \* array, uint8_t length)**
+- **uint32_t addFast(const uint8_t \* array, uint8_t length)**
 
 
 ## Performance Adler32
