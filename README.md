@@ -189,18 +189,18 @@ doing the modulo more often.
 #include "Adler.h"
 ```
 
-The functions are straightforward.
-
-- **uint32_t adler32(uint8_t \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)** length in units of 1 byte = 8 bits.
-- **uint16_t adler16(uint8_t \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)** length in units of 1 byte = 8 bits.
-
-The functions are typically used for an in memory buffer to calculate the checksum once.
+The static functions are typically used for an in memory buffer to calculate the checksum once.
 Think of packets in a network, records in a database, or a checksum for an configuration in EEPROM.
+
+The functions are straightforward. Length is in bytes (8 bits).
+
+- **uint32_t adler32(uint8_t \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)**
+- **uint16_t adler16(uint8_t \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)**
 
 Two wrapper functions added in 0.2.4 for char array's (convenience).
 
-- **uint32_t adler32(char \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)** length in units of 1 byte = 8 bits.
-- **uint16_t adler16(char \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)** length in units of 1 byte = 8 bits.
+- **uint32_t adler32(char \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)**
+- **uint16_t adler16(char \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)**
 
 
 ### Performance
@@ -259,7 +259,6 @@ See examples.
   - max uint32_t prime = 4.294.967.291
   - need printHelpers library for printing.
   - only on request.
-- wrapper functions (static) for char array's in adler.h ?
 - **void add(String str);**?
 
 
