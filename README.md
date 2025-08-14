@@ -225,7 +225,7 @@ The functions are straightforward. Length is in bytes (8 bits).
 
 Three wrapper functions added in 0.2.4 for char array's (convenience).
 
-- **uint64_t adler32(char \*data, uint16_t length, uint64_t s1 = 1, uint64_t s2 = 0)**
+- **uint64_t adler64(char \*data, uint16_t length, uint64_t s1 = 1, uint64_t s2 = 0)**
 - **uint32_t adler32(char \*data, uint16_t length, uint32_t s1 = 1, uint32_t s2 = 0)**
 - **uint16_t adler16(char \*data, uint16_t length, uint16_t s1 = 1, uint16_t s2 = 0)**
 
@@ -253,7 +253,8 @@ Lorem Ipsum text = 868 bytes.
 | 0.2.6   | Adler16  |  1912 us   |        us     |  longer => inclusion 64 bit
 
 The performance of the adler64 is slow as the UNO does not support 64 bit
-in hardware (emulation).
+in hardware (emulation). If one does not use the Adler64 in a sketch, the
+performance figures of 0.2.0 "return".
 
 
 ### UNO
@@ -285,7 +286,7 @@ See examples.
   - other platforms?
 - extend unit tests
   - s1 s2 parameter static functions
-
+  - Adler64 unit tests?
 
 #### Could
 
