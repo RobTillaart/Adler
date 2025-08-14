@@ -1,7 +1,7 @@
 {
   "name": "Adler",
-  "keywords": "Adler32, Adler16, checksum",
-  "description": "Arduino Library for calculating Adler-32 and Adler-16 checksum.",
+  "keywords": "Adler32, Adler16, Adler64 checksum",
+  "description": "Arduino Library for calculating Adler-32, Adler-16 and Adler64 checksum.",
   "authors":
   [
     {
