@@ -1,10 +1,10 @@
 #pragma once
 //
-//    FILE: Adler32.h
+//    FILE: Adler64.h
 //  AUTHOR: Rob Tillaart
 // VERSION: 0.3.0
-//    DATE: 2022-01-27
-// PURPOSE: Arduino Library for calculating Adler-32 checksum
+//    DATE: 2025-08-14
+// PURPOSE: Arduino Library for calculating Adler-64 checksum
 //     URL: https://github.com/RobTillaart/Adler
 //          https://en.wikipedia.org/wiki/Adler-32
 
