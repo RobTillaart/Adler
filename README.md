@@ -17,7 +17,7 @@ Arduino Library for Adler-32, Adler-16 and Adler-64 checksum.
 ## Description
 
 This library provides an Adler32 checksum of a data block, typical an array of bytes.
-The library also supports an Adler16 (0.2.0) and Adler64 (0.2.6) implementation.
+The library also supports an Adler16 (0.2.0) and Adler64 (0.3.0) implementation.
 
 This Adler16 is often faster as it uses a smaller checksum than the Adler32.
 The price is that Adler16 is less sensitive for error detection than Adler32 
@@ -36,7 +36,7 @@ in line with the CRC library.
 - Adler32.h for the Adler32 class
 - Adler16.h for the Adler16 class.
 
-0.2.6 supports experimental 64 bit. 
+0.3.0 supports experimental 64 bit. 
 - Adler64.h for the Adler64 class.
 - performance is low due to emulation of 64 bit
 
@@ -248,9 +248,9 @@ Lorem Ipsum text = 868 bytes.
 | 0.2.0   | Adler32  |  1116 us   |     60 us     |
 | 0.2.0   | Adler16  |  1736 us   |     75 us     |
 |         |          |            |               |
-| 0.2.6   | Adler64  |  7200 us   |        us     |
-| 0.2.6   | Adler32  |  1280 us   |        us     |  longer => inclusion 64 bit
-| 0.2.6   | Adler16  |  1912 us   |        us     |  longer => inclusion 64 bit
+| 0.3.0   | Adler64  |  7200 us   |        us     |
+| 0.3.0   | Adler32  |  1280 us   |        us     |  longer => inclusion 64 bit
+| 0.3.0   | Adler16  |  1912 us   |        us     |  longer => inclusion 64 bit
 
 The performance of the adler64 is slow as the UNO does not support 64 bit
 in hardware (emulation). If one does not use the Adler64 in a sketch, the

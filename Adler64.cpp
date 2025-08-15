@@ -1,7 +1,7 @@
 //
 //    FILE: Adler64.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.2.6
+// VERSION: 0.3.0
 //    DATE: 2025-08-14
 // PURPOSE: Arduino Library for calculating Adler-64 checksum
 //     URL: https://github.com/RobTillaart/Adler

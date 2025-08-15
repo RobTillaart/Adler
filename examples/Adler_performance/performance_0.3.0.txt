@@ -3,7 +3,7 @@ Tested on Arduino UNO R3
 IDE 1.18.19
 
 D:\Rob\WORK\Arduino\libraries\Adler\examples\Adler_performance\Adler_performance.ino
-ADLER_LIB_VERSION: 0.2.6
+ADLER_LIB_VERSION: 0.3.0
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ae...
 LENGTH STR: 868

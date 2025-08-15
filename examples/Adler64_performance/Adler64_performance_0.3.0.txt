@@ -2,7 +2,7 @@ BOARD:    UNO R3
 IDE:      1.8.19
 
 Adler64_performance
-ADLER64_LIB_VERSION: 0.2.6
+ADLER64_LIB_VERSION: 0.3.0
 
 randomtime: 901496
      total: 1052052

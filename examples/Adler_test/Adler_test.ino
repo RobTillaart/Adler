@@ -11,7 +11,7 @@
 
 
 //  expected output
-//  ADLER_LIB_VERSION: 0.2.6
+//  ADLER_LIB_VERSION: 0.3.0
 //
 //  E1F5
 //  4660
